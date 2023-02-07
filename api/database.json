@@ -1,0 +1,9 @@
+{
+    "flowers": [
+        { "id": 1, "name": "Rose", "color": "Red" },
+        { "id": 2, "name": "Begonia", "color": "Scarlet" },
+        { "id": 3, "name": "Tulip", "color": "Purple" },
+        { "id": 4, "name": "Orchid", "color": "White" },
+        { "id": 5, "name": "Daisy", "color": "Yellow" }
+    ]
+}
