@@ -13,3 +13,8 @@ export const fetchFlowers = () => {
         }
     )
 }
+
+
+export const getFlowers = () => {
+    return applicationState.flowers.map(flower => ({...flower}))
+}
