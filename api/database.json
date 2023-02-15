@@ -5,5 +5,25 @@
         { "id": 3, "name": "Tulip", "color": "Purple" },
         { "id": 4, "name": "Orchid", "color": "White" },
         { "id": 5, "name": "Daisy", "color": "Yellow" }
+    ],
+    "retailers": [
+        { "id": 1, "name":"Bonnie's Bouquets", "address": "100 Any St", "city": "Milwaukee", "state": "Wisconsin", "distributorId": 2 },
+        { "id": 2, "name":"Petal Pushers", "address": "2000 Home Rd", "city": "Juneau", "state": "Alaska", "distributorId": 1 },
+        { "id": 3, "name":"Pretty Tall Flowers", "address": "38 Main St", "city": "Tallahassee", "state": "Florida", "distributorId": 3 },
+        { "id": 4, "name":"Jersey Mike's Rose Emporium", "address": "45 Poplar Blvd", "city": "Memphis", "state": "Tennessee", "distributorId": 3 },
+        { "id": 5, "name":"Dave's One-Stop Flower Shop", "address": "62 Front St", "city": "San Francisco", "state": "California", "distributorId": 1 }
+    ],
+    "distributors": [
+        { "id": 1, "name":"Plant Shipping", "address": "300 North St", "city": "Portland", "state": "Oregon", "nurseryId": [1, 3] },
+        { "id": 2, "name":"Ivy Logistics", "address": "901 Porter Rd", "city": "Pittsburgh", "state": "Pennsylvania", "nurseryId": [2, 5] },
+        { "id": 3, "name":"Haulin' Oats Trucking", "address": "40 Broad St", "city": "Mobile", "state": "Alabama", "nurseryId": [2, 4] }
+    ],
+    "nurseries": [
+        { "id": 1, "name":"Greenway Nursery", "flowers": [1, 4] },
+        { "id": 2, "name":"Martha's Nursery", "flowers": [2, 4] },
+        { "id": 3, "name":"Tim's Tulips", "flowers": [3, 5] },
+        { "id": 4, "name":"Central Growing", "flowers": [1, 3] },
+        { "id": 5, "name":"Potted Love Gardens", "flowers": [2, 5] }
     ]
+
 }
