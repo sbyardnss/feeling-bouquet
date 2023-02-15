@@ -3,46 +3,42 @@ import { getRetailers, getDistributors, getNurseries, getFlowers } from "./dataA
 
 const convertRetailersToListItem = (obj) => {
     let html = ""
-    html += `<li id="retailerListItem" value="retailer--${obj.id}"><div>${obj.name}</div><div>Offers: ${retailerFlowers(obj)}<div>${obj.address}, ${obj.city}, ${obj.state}</div><div>Distributor: ${distributorMatcher(obj)}</div><div>Sourced from: ${nurseryToRetailer(obj)}</li>`
+    html += `<li id="retailerListItem" value="retailer--${obj.id}"><div>${obj.name}</div><div>Offers: ${retailerFlowers(obj)}<div>${obj.address}, ${obj.city}, ${obj.state}</div><div>Distributor: ${distributorMatcher(obj).name}</div><div>Sourced from: ${nurseryToRetailer(obj).map(n => n.name).join(" and ")}</li>`
     return html
 }
 
 const distributorMatcher = (obj) => {
     const distributors = getDistributors()
     const matchedDistributor = distributors.find(dist => obj.distributorId === dist.id)
-    return matchedDistributor.name
+    return matchedDistributor
 }
 
 const nurseryToRetailer = (obj) => {
     const nurseries = getNurseries()
-    const distributors = getDistributors()
     let matchedNurseriesArray = []
-    const matchedDistributor = distributors.find(dist => obj.distributorId === dist.id)
+    const matchedDistributor = distributorMatcher(obj)
     for (const nursery of nurseries) {
         if (matchedDistributor.nurseryId.includes(nursery.id)) {
             matchedNurseriesArray.push(nursery)
         }
     }
-    return matchedNurseriesArray.map(n => n.name).join(" and ")
+    return matchedNurseriesArray
 } 
 
 const retailerFlowers = (obj) => {
-    const nurseries = getNurseries()
-    const distributors = getDistributors()
     const flowers = getFlowers()
-    let matchedNurseriesArray = []
+    let matchedNurseriesArray = nurseryToRetailer(obj)
     let matchedFlowersArray = []
-    const matchedDistributor = distributors.find(dist => obj.distributorId === dist.id)
-    for (const nursery of nurseries) {
-        if (matchedDistributor.nurseryId.includes(nursery.id)) {
-            matchedNurseriesArray.push(nursery)
+    for (const match of matchedNurseriesArray) {
+        // matchedFlowersArray = flowers.filter(flower => match.flowers.includes(flower.id))
+        for (const flower of flowers) {
+            if (match.flowers.includes(flower.id)) {
+                matchedFlowersArray.push(flower)
+            }
         }
     }
-    for (const match of matchedNurseriesArray) {
-        matchedFlowersArray = flowers.filter(flower => match.flowers.includes(flower.id))
-    }
-
-    return matchedFlowersArray.map(n => n.color + " " + n.name).join(" and ")
+    const uniqueFlowers = [...new Set(matchedFlowersArray)]
+    return uniqueFlowers.map(n => n.color + " " + n.name).join(" and ")
 }
 
 
