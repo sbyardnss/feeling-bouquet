@@ -30,7 +30,6 @@ const retailerFlowers = (obj) => {
     let matchedNurseriesArray = nurseryToRetailer(obj)
     let matchedFlowersArray = []
     for (const match of matchedNurseriesArray) {
-        // matchedFlowersArray = flowers.filter(flower => match.flowers.includes(flower.id))
         for (const flower of flowers) {
             if (match.flowers.includes(flower.id)) {
                 matchedFlowersArray.push(flower)
