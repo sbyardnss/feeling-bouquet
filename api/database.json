@@ -1,10 +1,10 @@
 {
     "flowers": [
-        { "id": 1, "name": "Rose", "color": "Red" },
-        { "id": 2, "name": "Begonia", "color": "Scarlet" },
-        { "id": 3, "name": "Tulip", "color": "Purple" },
-        { "id": 4, "name": "Orchid", "color": "White" },
-        { "id": 5, "name": "Daisy", "color": "Yellow" }
+        { "id": 1, "name": "Roses", "color": "Red" },
+        { "id": 2, "name": "Begonias", "color": "Scarlet" },
+        { "id": 3, "name": "Tulips", "color": "Purple" },
+        { "id": 4, "name": "Orchids", "color": "White" },
+        { "id": 5, "name": "Daisies", "color": "Yellow" }
     ],
     "retailers": [
         { "id": 1, "name":"Bonnie's Bouquets", "address": "100 Any St", "city": "Milwaukee", "state": "Wisconsin", "distributorId": 2 },
